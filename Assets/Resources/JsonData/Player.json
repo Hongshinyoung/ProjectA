@@ -1,0 +1,21 @@
+﻿{
+  "Player": [
+    {
+      "id": "PLAYER001",
+      "kor_Name": "플레이어",
+      "level": 1,
+      "hp": 200,
+      "maxhp": 200,
+      "mp": 200,
+      "attack": 10,
+      "attackspeed": 10.0,
+      "attackmaxdistance": 20.0,
+      "defense": 5,
+      "walkspeed": 5,
+      "rotationdamping": 10.0,
+      "movementspeedmodifier": 1.0,
+      "runspeedmodifier": 2.0,
+      "jumpforce": 8
+    }
+  ]
+}

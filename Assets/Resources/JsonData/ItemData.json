@@ -1,0 +1,34 @@
+﻿{
+  "ItemData": [
+    {
+      "id": "ITEM001",
+      "name": "NormalStaff",
+      "imageName": "Staff",
+      "korName": "스태프",
+      "itemType": "Weapon",
+      "stat": 2,
+      "description": "this is staff",
+      "number": 1
+    },
+    {
+      "id": "ITEM002",
+      "name": "NormalArmor",
+      "imageName": "Armor",
+      "korName": "방패",
+      "itemType": "Shield",
+      "stat": 20,
+      "description": "this is Armor",
+      "number": 1
+    },
+    {
+      "id": "ITEM003",
+      "name": "potion_1",
+      "imageName": "Potion",
+      "korName": "HP물약",
+      "itemType": "Potion",
+      "stat": 50,
+      "description": "this is Potion",
+      "number": 1
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+﻿{
+  "Item": [
+    {
+      "index": 0,
+      "id": "ITEM001",
+      "name": "knife_1",
+      "kor_Name": "한손검",
+      "attack": 2,
+      "defense": 8
+    },
+    {
+      "index": 1,
+      "id": "ITEM002",
+      "name": "knife_2",
+      "kor_Name": "두손검",
+      "attack": 8,
+      "defense": 2
+    },
+    {
+      "index": 2,
+      "id": "ITEM003",
+      "name": "magic_1",
+      "kor_Name": "마법봉",
+      "attack": 2,
+      "defense": 8
+    },
+    {
+      "index": 3,
+      "id": "ITEM004",
+      "name": "magic_2",
+      "kor_Name": "마법책",
+      "attack": 8,
+      "defense": 2
+    },
+    {
+      "index": 4,
+      "id": "ITEM005",
+      "name": "arrow_1",
+      "kor_Name": "석궁",
+      "attack": 2,
+      "defense": 8
+    },
+    {
+      "index": 5,
+      "id": "ITEM006",
+      "name": "arrow_2",
+      "kor_Name": "활",
+      "attack": 8,
+      "defense": 2
+    },
+    {
+      "index": 6,
+      "id": "ITEM007",
+      "name": "shield_1",
+      "kor_Name": "도란방패",
+      "attack": 2,
+      "defense": 8
+    },
+    {
+      "index": 7,
+      "id": "ITEM008",
+      "name": "shield_2",
+      "kor_Name": "방패",
+      "attack": 8,
+      "defense": 2
+    },
+    {
+      "index": 8,
+      "id": "ITEM009",
+      "name": "suit_1",
+      "kor_Name": "마법복",
+      "attack": 2,
+      "defense": 8
+    },
+    {
+      "index": 9,
+      "id": "ITEM010",
+      "name": "suit_2",
+      "kor_Name": "근접복",
+      "attack": 8,
+      "defense": 2
+    },
+    {
+      "index": 10,
+      "id": "ITEM011",
+      "name": "suit_3",
+      "kor_Name": "원거리복장",
+      "attack": 2,
+      "defense": 8
+    }
+  ]
+}

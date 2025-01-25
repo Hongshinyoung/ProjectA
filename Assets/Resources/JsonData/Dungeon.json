@@ -1,0 +1,156 @@
+﻿{
+  "Dungeon": [
+    {
+      "StageId": "MAP001",
+      "ObjectName": "Stage001",
+      "SpawnMonster": "OneEye",
+      "MonsterCount": "0",
+      "AsteriodType": "small",
+      "AsteriodCount": "3"
+    },
+    {
+      "StageId": "MAP002",
+      "ObjectName": "Stage002",
+      "SpawnMonster": "OneEye/Cyclops",
+      "MonsterCount": "1/0",
+      "AsteriodType": "middle",
+      "AsteriodCount": "3"
+    },
+    {
+      "StageId": "MAP003",
+      "ObjectName": "Stage003",
+      "SpawnMonster": "OneEye/Cyclops",
+      "MonsterCount": "1/1",
+      "AsteriodType": "big",
+      "AsteriodCount": "3"
+    },
+    {
+      "StageId": "MAP004",
+      "ObjectName": "Stage004",
+      "SpawnMonster": "OneEye/Cyclops",
+      "MonsterCount": "1/2",
+      "AsteriodType": "small/middle",
+      "AsteriodCount": "3/3"
+    },
+    {
+      "StageId": "MAP005",
+      "ObjectName": "Stage005",
+      "SpawnMonster": "OneEye/Cyclops/Cyclops",
+      "MonsterCount": "1/1/1",
+      "AsteriodType": "middle,big",
+      "AsteriodCount": "3/3"
+    },
+    {
+      "StageId": "MAP006",
+      "ObjectName": "Stage006",
+      "SpawnMonster": "OneEye/Cyclops/Cyclops",
+      "MonsterCount": "2/2/1",
+      "AsteriodType": "small/middle/big",
+      "AsteriodCount": "3/3/3"
+    },
+    {
+      "StageId": "MAP101",
+      "ObjectName": "Stage101",
+      "SpawnMonster": "Spike/Wheel/Wreck",
+      "MonsterCount": "1/1/1",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP102",
+      "ObjectName": "Stage102",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "10",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP103",
+      "ObjectName": "Stage103",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "11",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP104",
+      "ObjectName": "Stage104",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "12",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP105",
+      "ObjectName": "Stage105",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "13",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP106",
+      "ObjectName": "Stage106",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "14",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP201",
+      "ObjectName": "Stage201",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "15",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP202",
+      "ObjectName": "Stage202",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "16",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP203",
+      "ObjectName": "Stage203",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "17",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP204",
+      "ObjectName": "Stage204",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "18",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP205",
+      "ObjectName": "Stage205",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "19",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP206",
+      "ObjectName": "Stage206",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "20",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    },
+    {
+      "StageId": "MAP301",
+      "ObjectName": "Stage301",
+      "SpawnMonster": "BigBlink",
+      "MonsterCount": "21",
+      "AsteriodType": "",
+      "AsteriodCount": ""
+    }
+  ]
+}
