@@ -1,23 +1,32 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIInventory : UIBase
 {
     [SerializeField] private Transform uiTransformParent;
-    [SerializeField] private GameObject inventoryItemPrefab;
-    
     private Inventory inventory;
     
     private void Awake()
     {
         inventory = Inventory.Instance;
-        // 인벤토리 슬롯 동적생성
-            for (int i = 0; i < inventory.items.Count; i++)
+        RefreshUI();
+    }
+    
+    public void RefreshUI()
+    {
+        // 기존 슬롯 삭제
+        foreach (Transform child in uiTransformParent)
         {
-            GameObject itemSlot = ResourceManager.Instance.LoadAsset<GameObject>("InventorySlot", eAssetType.UI);
-            Instantiate(itemSlot, uiTransformParent);
+            Destroy(child.gameObject);
+        }
+
+        // 인벤토리에 있는 아이템 리스트로 슬롯 생성
+        foreach (Item item in inventory.items)
+        {
+            GameObject inventorySlot = ResourceManager.Instance.LoadAsset<GameObject>("InventorySlot", eAssetType.UI);
+            GameObject slot = Instantiate(inventorySlot, uiTransformParent); // 슬롯 생성
+            var slotScript = slot.GetComponent<InventorySlot>();
+            slotScript.SetSlot(item);
+
         }
     }
 }

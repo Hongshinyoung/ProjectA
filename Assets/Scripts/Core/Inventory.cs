@@ -5,7 +5,8 @@ using UnityEngine;
 public class Inventory : Singleton<Inventory> // 싱글톤으로 구현
 {
     public List<Item> items = new List<Item>();
-
+    [HideInInspector] public UIInventory uiInventory;
+    [HideInInspector] public Shop shop;
     protected override void Awake()
     {
         base.Awake();   
