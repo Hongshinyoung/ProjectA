@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78f5cd1dd264d434baabd567937da274, type: 3}
-  m_Name: Sword
+  m_Name: Knife
   m_EditorClassIdentifier: 
   ItemID: 0
-  ItemName: "\uB300\uAC80"
-  ItemPrice: 250
+  ItemName: "\uB2E8\uAC80"
+  ItemPrice: 150
   ItemIcon: {fileID: 0}
-  Type: 1
+  Type: 0
   isConsumable: 0
   MaxStack: 0
   HealAmount: 0
-  AttackPower: 40
+  AttackPower: 20
   DefensePower: 0
