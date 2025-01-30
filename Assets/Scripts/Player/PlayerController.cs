@@ -1,17 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Move")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpHeight = 3f;
+    [SerializeField] private float dashSpeed = 10f;
+    
+    [Header("Look")]
     [SerializeField] private Transform cameraTransform;
-    [SerializeField] private float mouseSensitivity = 100f;
-    [SerializeField] private float maxVerticalAngle = 80f;
+    [SerializeField] private float mouseSensitivity = 80f;
+    [SerializeField] private float maxVerticalAngle = 70f;
     
     private CharacterController characterController;
     private Vector2 moveInput;
@@ -19,9 +24,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
     private float verticalLookRotation;
+    private bool isDashing;
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -43,14 +50,15 @@ public class PlayerController : MonoBehaviour
         Vector3 move = forward * moveInput.y + right * moveInput.x;
         move.Normalize(); // 벡터를 정규화하여 일정한 속도로 유지
 
-        characterController.Move(move * moveSpeed * Time.deltaTime);
+        float currentSpeed = isDashing ? dashSpeed : moveSpeed;
+        characterController.Move(move * currentSpeed * Time.deltaTime); 
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // 점프 초기 속도^2 = 2 * g * h
         }
     }
 
@@ -58,7 +66,36 @@ public class PlayerController : MonoBehaviour
     {
         lookInput = context.ReadValue<Vector2>();
     }
+
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed && isGrounded)
+        {
+            isDashing = true;
+        }
+        else if(context.phase == InputActionPhase.Canceled)
+        {
+            isDashing = false;
+        }
+    }
+
+    public void Inventory(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            var ui = UIManager.Instance.Get<UIInventory>();
+            if (ui != null)
+            {
+                UIManager.Instance.ToggleUI(ui);
+            }
+            else
+            {
+                UIManager.Instance.Show<UIInventory>();
+            }
+        }
+    }
     
+
     private void HandleCameraRotation()
     {
         // 마우스 입력 기반 회전 계산
@@ -79,11 +116,13 @@ public class PlayerController : MonoBehaviour
         isGrounded = characterController.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
+            // !ground방지
             velocity.y = -2f;
         }
         
         Moving();
         
+        // 중력 작용
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
         
