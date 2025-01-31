@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     [Header("Look")]
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private float mouseSensitivity = 80f;
-    [SerializeField] private float maxVerticalAngle = 70f;
+    [SerializeField] private float minVerticalAngle = -50f;
+    [SerializeField] private float maxVerticalAngle = 50f;
     
     private CharacterController characterController;
     private Vector2 moveInput;
@@ -107,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         // 카메라 상하 회전 (클램프 처리)
         verticalLookRotation -= mouseY;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -maxVerticalAngle, maxVerticalAngle);
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, minVerticalAngle, maxVerticalAngle);
         cameraTransform.localRotation = Quaternion.Euler(verticalLookRotation, 0f, 0f);
     }
 

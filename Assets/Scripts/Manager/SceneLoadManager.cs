@@ -1,8 +1,15 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+public enum SceneName
+{
+    Intro,
+    InGame
+}
 
 public class SceneLoadManager : Singleton<SceneLoadManager>
 {
@@ -19,12 +26,12 @@ public class SceneLoadManager : Singleton<SceneLoadManager>
         progressText = loadingUI.GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(string sceneName, Action callback = null)
     {
-        StartCoroutine(LoadSceneAsync(sceneName));
+        StartCoroutine(LoadSceneAsync(sceneName, callback));
     }
 
-    private IEnumerator LoadSceneAsync(string sceneName)
+    private IEnumerator LoadSceneAsync(string sceneName, Action callback = null)
     {
 
         loadingUI.gameObject.SetActive(true);
@@ -46,6 +53,7 @@ public class SceneLoadManager : Singleton<SceneLoadManager>
             }
             yield return null;
         }
+        callback?.Invoke();
 
         if (loadingUI != null)
         {
