@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] private float mouseSensitivity = 80f;
     [SerializeField] private float minVerticalAngle = -50f;
     [SerializeField] private float maxVerticalAngle = 50f;
+    [SerializeField] private Camera playerCamera;
     
     public PhotonView photonView;
     private CharacterController characterController;
@@ -30,6 +31,10 @@ public class PlayerController : MonoBehaviourPun
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        if (!photonView.IsMine)
+        {
+            Destroy(playerCamera.gameObject);
+        }
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -100,6 +105,7 @@ public class PlayerController : MonoBehaviourPun
 
     private void HandleCameraRotation()
     {
+        if(!photonView.IsMine) return;
         // 마우스 입력 기반 회전 계산
         float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
         float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
