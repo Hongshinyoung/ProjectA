@@ -6,9 +6,13 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public Player player;
+    private string selectPrefabName;
     private UserData userData;
     private SpawnManager spawnManager;
+    private NetworkManager networkManager;
     public SpawnManager SpawnManager => spawnManager;
+    public NetworkManager NetworkManager => networkManager;
+    public string SelectPrefabName => selectPrefabName;
 
     protected override void Awake()
     {
@@ -25,8 +29,12 @@ public class GameManager : Singleton<GameManager>
     {
         SceneLoadManager.Instance.LoadScene("InGame",() => 
         {
-            spawnManager = new GameObject("SpawnManager").AddComponent<SpawnManager>();
-            spawnManager.Initialize(selectCharacter);
+            if (spawnManager == null)
+            {
+                spawnManager = new GameObject("SpawnManager").AddComponent<SpawnManager>();
+            }
+            selectPrefabName = selectCharacter;
+            //spawnManager.Initialize(selectCharacter); // 여기서 실행하니 룸 생성 전에 플레이어 생성 요청해서 오류 발생.
         });
     }
     

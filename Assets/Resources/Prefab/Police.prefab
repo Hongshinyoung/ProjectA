@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 7823710193517221269}
   - component: {fileID: 1290765250955241848}
   - component: {fileID: 6397907345675622052}
+  - component: {fileID: 604552860169662507}
   m_Layer: 0
   m_Name: Police
   m_TagString: Untagged
@@ -491,3 +492,27 @@ MonoBehaviour:
   mouseSensitivity: 80
   minVerticalAngle: -20
   maxVerticalAngle: 60
+  photonView: {fileID: 604552860169662507}
+--- !u!114 &604552860169662507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8317181785321527173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 0}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

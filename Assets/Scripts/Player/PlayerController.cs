@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPun
 {
     [Header("Move")]
     [SerializeField] private float moveSpeed = 5f;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float minVerticalAngle = -50f;
     [SerializeField] private float maxVerticalAngle = 50f;
     
+    public PhotonView photonView;
     private CharacterController characterController;
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -114,6 +115,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            Debug.Log($"포톤 연결상태: {PhotonNetwork.IsConnected}");
+            return;
+        }
         isGrounded = characterController.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
