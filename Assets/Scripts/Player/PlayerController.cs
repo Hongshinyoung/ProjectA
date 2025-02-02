@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviourPun
         characterController = GetComponent<CharacterController>();
         if (!photonView.IsMine)
         {
+            playerCamera = GetComponentInChildren<Camera>();
             Destroy(playerCamera.gameObject);
         }
         Cursor.lockState = CursorLockMode.Locked;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviourPun
 
     private void Moving()
     {
+        if(!photonView.IsMine) return;
         // 카메라 방향을 기준으로 이동 벡터 계산
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
