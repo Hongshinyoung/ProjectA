@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3054852031788328631}
   - component: {fileID: 6800686607620704660}
   - component: {fileID: 2416065425088751149}
+  - component: {fileID: 550533792091671188}
   - component: {fileID: 2937665794320069726}
   - component: {fileID: 8738236253968001508}
   m_Layer: 0
@@ -211,16 +212,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2decb0042734090b7f2276b91a3cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   gravity: -9.81
   jumpHeight: 3
-  dashSpeed: 10
   cameraTransform: {fileID: 1306745530925897806}
-  mouseSensitivity: 80
+  mouseSensitivity: 7
   minVerticalAngle: -20
   maxVerticalAngle: 60
   playerCamera: {fileID: 7018217691228419025}
   photonView: {fileID: 2937665794320069726}
+--- !u!114 &550533792091671188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3184685542120265796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540aa4d9f6f0e224db3d32bfc9c4d611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2937665794320069726
 MonoBehaviour:
   m_ObjectHideFlags: 0

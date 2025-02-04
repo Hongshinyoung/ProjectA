@@ -13,7 +13,8 @@ public class SpawnManager : MonoBehaviour
     {
         if (spawnPos == null)
         {
-            spawnPos = new GameObject("SpawnPos").transform;
+            spawnPos = new GameObject("SpawnPos").transform; // 기본 0,0,0으로 세팅
+            spawnPos.transform.position = new Vector3(6,3,0);
         }
     }
 

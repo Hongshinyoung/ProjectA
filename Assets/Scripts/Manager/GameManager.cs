@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public Player player;
     private string selectPrefabName;
     private UserData userData;
     private SpawnManager spawnManager;

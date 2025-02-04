@@ -8,14 +8,14 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviourPun
 {
     [Header("Move")]
-    [SerializeField] private float moveSpeed = 5f;
+    //[SerializeField] private float moveSpeed = 5f; //basecharacter에서 처리
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpHeight = 3f;
-    [SerializeField] private float dashSpeed = 10f;
+    //[SerializeField] private float dashSpeed = 10f;
     
     [Header("Look")]
     [SerializeField] private Transform cameraTransform;
-    [SerializeField] private float mouseSensitivity = 80f;
+    [SerializeField] private float mouseSensitivity = 60f;
     [SerializeField] private float minVerticalAngle = -50f;
     [SerializeField] private float maxVerticalAngle = 50f;
     [SerializeField] private Camera playerCamera;
@@ -28,9 +28,11 @@ public class PlayerController : MonoBehaviourPun
     private bool isGrounded;
     private float verticalLookRotation;
     private bool isDashing;
+    private BaseCharacter baseCharacter;
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        baseCharacter = GetComponent<BaseCharacter>();
         if (!photonView.IsMine)
         {
             playerCamera = GetComponentInChildren<Camera>();
@@ -59,8 +61,9 @@ public class PlayerController : MonoBehaviourPun
         Vector3 move = forward * moveInput.y + right * moveInput.x;
         move.Normalize(); // 벡터를 정규화하여 일정한 속도로 유지
 
-        float currentSpeed = isDashing ? dashSpeed : moveSpeed;
-        characterController.Move(move * currentSpeed * Time.deltaTime); 
+        float currentSpeed = isDashing ? baseCharacter.DashSpeed : baseCharacter.MoveSpeed;
+        characterController.Move(move * currentSpeed * Time.deltaTime);
+        Debug.Log(currentSpeed);
     }
 
     public void Jump(InputAction.CallbackContext context)
