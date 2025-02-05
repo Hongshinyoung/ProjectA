@@ -20,16 +20,16 @@ public static class ListExtensions
 
 public class MazeGenerator : MonoBehaviour
 {
-    [SerializeField] private int width = 21;  // °¡·Î (È¦¼ö)
-    [SerializeField] private int height = 21; // ¼¼·Î (È¦¼ö)
-    [SerializeField] private float cellSize = 12f; // ¼¿ Å©±â
-    [SerializeField] private float cellHeight = 10f; // Ãş ³ôÀÌ
+    [SerializeField] private int width = 21;  // ê°€ë¡œ (í™€ìˆ˜)
+    [SerializeField] private int height = 21; // ì„¸ë¡œ (í™€ìˆ˜)
+    [SerializeField] private float cellSize = 12f; // ì…€ í¬ê¸°
+    [SerializeField] private float cellHeight = 13f; // ì¸µ ë†’ì´
     [SerializeField] private GameObject wallPrefab;
     [SerializeField] private GameObject floorPrefab;
-    [SerializeField] private GameObject stairPrefab; // °è´Ü ÇÁ¸®ÆÕ
+    [SerializeField] private GameObject stairPrefab; // ê³„ë‹¨ í”„ë¦¬íŒ¹
     [SerializeField] private Transform mazeParent;
 
-    private int[,,] maze; // 0: º®, 1: ±æ, 2: °è´Ü
+    private int[,,] maze; // 0: ë²½, 1: ê¸¸, 2: ê³„ë‹¨
 
     private void Start()
     {
@@ -39,40 +39,40 @@ public class MazeGenerator : MonoBehaviour
 
     private void GenerateMaze()
     {
-        maze = new int[width, height, 2]; // 3Â÷¿ø ¹è¿­·Î º¯°æ
+        maze = new int[width, height, 2]; // 3ì°¨ì› ë°°ì—´ë¡œ ë³€ê²½
 
-        // ¹Ì·Î ÃÊ±âÈ­: ¸ğµç Ä­À» º®À¸·Î ¼³Á¤ (°¢ Ãşº°·Î)
+        // ë¯¸ë¡œ ì´ˆê¸°í™”: ëª¨ë“  ì¹¸ì„ ë²½ìœ¼ë¡œ ì„¤ì • (ê° ì¸µë³„ë¡œ)
         for (int z = 0; z < 2; z++)
         {
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-                    maze[x, y, z] = 0; // ±âº»ÀûÀ¸·Î º®
+                    maze[x, y, z] = 0; // ê¸°ë³¸ì ìœ¼ë¡œ ë²½
                 }
             }
         }
 
-        // ½ÃÀÛ ÁöÁ¡ ¼³Á¤ (È¦¼ö ÁÂÇ¥¿¡¼­ ½ÃÀÛ, °¢ Ãşº°·Î)
+        // ì‹œì‘ ì§€ì  ì„¤ì • (í™€ìˆ˜ ì¢Œí‘œì—ì„œ ì‹œì‘, ê° ì¸µë³„ë¡œ)
         GenerateMazeDFS(1, 1, 0);
         GenerateMazeDFS(1, 1, 1);
 
-        // ÀÔ±¸¿Í Ãâ±¸ ¸¸µé±â (°¢ Ãşº°·Î)
-        maze[1, 0, 0] = 1; // 1Ãş ÀÔ±¸
-        maze[width - 2, height - 1, 0] = 1; // 1Ãş Ãâ±¸
-        maze[1, 0, 1] = 1; // 2Ãş ÀÔ±¸
-        maze[width - 2, height - 1, 1] = 1; // 2Ãş Ãâ±¸
+        // ì…êµ¬ì™€ ì¶œêµ¬ ë§Œë“¤ê¸° (ê° ì¸µë³„ë¡œ)
+        maze[1, 0, 0] = 1; // 1ì¸µ ì…êµ¬
+        maze[width - 2, height - 1, 0] = 1; // 1ì¸µ ì¶œêµ¬
+        maze[1, 0, 1] = 1; // 2ì¸µ ì…êµ¬
+        maze[width - 2, height - 1, 1] = 1; // 2ì¸µ ì¶œêµ¬
 
-        // Ãş ¿¬°á (°è´Ü)
+        // ì¸µ ì—°ê²° (ê³„ë‹¨)
         int stairX = width / 2;
         int stairY = height / 2;
-        maze[stairX, stairY, 0] = 2; // 1Ãş °è´Ü À§Ä¡
-        maze[stairX, stairY, 1] = 2; // 2Ãş °è´Ü À§Ä¡
+        maze[stairX, stairY, 0] = 2; // 1ì¸µ ê³„ë‹¨ ìœ„ì¹˜
+        maze[stairX, stairY, 1] = 2; // 2ì¸µ ê³„ë‹¨ ìœ„ì¹˜
     }
 
     private void GenerateMazeDFS(int x, int y, int z)
     {
-        maze[x, y, z] = 1; // ÇöÀç À§Ä¡¸¦ ±æ·Î ¼³Á¤
+        maze[x, y, z] = 1; // í˜„ì¬ ìœ„ì¹˜ë¥¼ ê¸¸ë¡œ ì„¤ì •
 
         int[] dx = { 0, 0, 2, -2 };
         int[] dy = { 2, -2, 0, 0 };
@@ -86,7 +86,7 @@ public class MazeGenerator : MonoBehaviour
 
             if (nx > 0 && ny > 0 && nx < width - 1 && ny < height - 1 && maze[nx, ny, z] == 0)
             {
-                // º®À» ºÎ¼ö°í ±æÀ» ¸¸µê
+                // ë²½ì„ ë¶€ìˆ˜ê³  ê¸¸ì„ ë§Œë“¦
                 maze[x + dx[dir] / 2, y + dy[dir] / 2, z] = 1;
                 GenerateMazeDFS(nx, ny, z);
             }
@@ -95,22 +95,22 @@ public class MazeGenerator : MonoBehaviour
 
     private void InstantiateMaze()
     {
-        for (int z = 0; z < 2; z++) // 2Ãş
+        for (int z = 0; z < 2; z++) // 2ì¸µ
         {
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
                     Vector3 position = new Vector3(x * cellSize, z * cellHeight, y * cellSize);
-                    if (maze[x, y, z] == 1) // ±æ(¹Ù´Ú)
+                    if (maze[x, y, z] == 1) // ê¸¸(ë°”ë‹¥)
                     {
                         Instantiate(floorPrefab, position, Quaternion.identity, mazeParent);
                     }
-                    else if (maze[x, y, z] == 0) // º®
+                    else if (maze[x, y, z] == 0) // ë²½
                     {
                         Instantiate(wallPrefab, position + Vector3.up * 0.5f, Quaternion.identity, mazeParent);
                     }
-                    else if (maze[x, y, z] == 2 && z == 0) // °è´Ü 1Ãş¿¡¸¸ »ı¼º
+                    else if (maze[x, y, z] == 2 && z == 0) // ê³„ë‹¨
                     {
                         Instantiate(stairPrefab, position, Quaternion.identity, mazeParent);
                     }

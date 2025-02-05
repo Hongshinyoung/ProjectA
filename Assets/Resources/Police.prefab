@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2157901509266551301}
   - component: {fileID: 5563797378955419051}
   - component: {fileID: 7503070669380339870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4061585140019059719}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3747673900409519289}
   - component: {fileID: 3273914120211630474}
   - component: {fileID: 5129813379130090237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 6085102656493198084}
   - component: {fileID: 604552860169662507}
   - component: {fileID: 2929718568543893982}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Police
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,6 +493,9 @@ MonoBehaviour:
   minVerticalAngle: -20
   maxVerticalAngle: 60
   playerCamera: {fileID: 3747673900409519289}
+  elevatorLayer:
+    serializedVersion: 2
+    m_Bits: 8
   photonView: {fileID: 604552860169662507}
 --- !u!114 &6085102656493198084
 MonoBehaviour:

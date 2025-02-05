@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 550533792091671188}
   - component: {fileID: 2937665794320069726}
   - component: {fileID: 8738236253968001508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thief
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,6 +219,9 @@ MonoBehaviour:
   minVerticalAngle: -20
   maxVerticalAngle: 60
   playerCamera: {fileID: 7018217691228419025}
+  elevatorLayer:
+    serializedVersion: 2
+    m_Bits: 8
   photonView: {fileID: 2937665794320069726}
 --- !u!114 &550533792091671188
 MonoBehaviour:
@@ -286,7 +289,7 @@ GameObject:
   - component: {fileID: 7018217691228419025}
   - component: {fileID: 8439500877893879009}
   - component: {fileID: 5215529447803612160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -420,7 +423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306745530925897806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +458,7 @@ GameObject:
   - component: {fileID: 1146496268724495032}
   - component: {fileID: 7682381446019547902}
   - component: {fileID: 1856044053952788505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}

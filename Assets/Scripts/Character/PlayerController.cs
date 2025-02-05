@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] private float maxVerticalAngle = 50f;
     [SerializeField] private Camera playerCamera;
     
+    
+    [SerializeField] private LayerMask elevatorLayer;
     public PhotonView photonView;
     private CharacterController characterController;
     private Vector2 moveInput;
@@ -39,6 +41,26 @@ public class PlayerController : MonoBehaviourPun
             Destroy(playerCamera.gameObject);
         }
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(!photonView.IsMine) return;
+        if ((1 << hit.collider.gameObject.layer & elevatorLayer) != 0)
+        {
+            Elevator elevator = hit.collider.gameObject.GetComponent<Elevator>();
+            if (elevator != null)
+            {
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    elevator.OnDown();
+                }
+                else if (Input.GetKeyDown(KeyCode.E))
+                {
+                    elevator.OnLift();
+                }
+            }
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -63,7 +85,6 @@ public class PlayerController : MonoBehaviourPun
 
         float currentSpeed = isDashing ? baseCharacter.DashSpeed : baseCharacter.MoveSpeed;
         characterController.Move(move * currentSpeed * Time.deltaTime);
-        Debug.Log(currentSpeed);
     }
 
     public void Jump(InputAction.CallbackContext context)
