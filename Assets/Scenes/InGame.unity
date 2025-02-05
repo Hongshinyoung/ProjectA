@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 91577221}
   - component: {fileID: 91577220}
+  - component: {fileID: 91577222}
   m_Layer: 0
   m_Name: MazeGenerator
   m_TagString: Untagged
@@ -154,9 +155,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 13
   height: 13
-  wallPrefab: {fileID: 1282078587950729116, guid: d21c11dbb31e5b1479e33dc673eb395d,
+  cellSize: 12
+  cellHeight: 10
+  wallPrefab: {fileID: 4348229144153864701, guid: e055b71fcd86beb4dad1427fa7c0d474,
     type: 3}
-  floorPrefab: {fileID: 5581304429699793504, guid: 5651a453f4180b7469681b9482d51d9b,
+  floorPrefab: {fileID: 6712133731684814798, guid: b608e156f6777b240aafa358dc35a932,
+    type: 3}
+  stairPrefab: {fileID: 307227362503512985, guid: f74f92451c028d54a83a8cbb885eda84,
     type: 3}
   mazeParent: {fileID: 91577221}
 --- !u!4 &91577221
@@ -174,6 +179,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &91577222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91577219}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7f6a3945005754da97c00b311f2615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 13
+  height: 13
+  wallPrefab: {fileID: 0}
+  roadPrefab: {fileID: 0}
+  itemPrefab: {fileID: 0}
+  trapPrefab: {fileID: 0}
 --- !u!1 &118592636
 GameObject:
   m_ObjectHideFlags: 0
