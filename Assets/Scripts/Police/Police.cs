@@ -1,23 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Police : BaseCharacter
 {
+    [SerializeField] private LayerMask detectLayer;
+    private CharacterController controller;
     public override float MoveSpeed => 5f;
 
     public override float DashSpeed => 10f;
 
-    public override void UseSkill()
+    private void Awake()
     {
-        Debug.Log("∞Ê¬˚ Ω∫≈≥ Ω««‡");
+        controller = GetComponent<CharacterController>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public override void UseSkill()
     {
-        if (IsCollision(collisionLayer, collision.gameObject))
+        Debug.Log("Ïä§ÌÇ¨");
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(!photonView.IsMine) return;
+        if (IsCollision(detectLayer, hit.collider.gameObject))
         {
-            Debug.Log("µµµœ ¿‚±‚ º∫∞¯");
+            Thief thiefController = hit.collider.GetComponent<Thief>();
+            if (thiefController != null)
+            {
+                thiefController.GoToPrison();
+            }
+            Debug.Log("ÎèÑÎëë Ïû°Ïùå");
         }
     }
 }

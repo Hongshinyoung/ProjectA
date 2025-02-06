@@ -4,7 +4,7 @@ using UnityEngine;
 public class Elevator : MonoBehaviourPun
 {
     [SerializeField] private float elevatorSpeed = 5f;
-    [SerializeField] private float elevatorRange = 10f;
+    [SerializeField] private float elevatorRange = 13f;
 
     private float currentDistance = 0f;
     private float targetDistance = 0f;

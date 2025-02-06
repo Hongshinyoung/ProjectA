@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
-public abstract class BaseCharacter : MonoBehaviour
+public abstract class BaseCharacter : MonoBehaviourPun
 {
     [SerializeField] protected LayerMask collisionLayer;
     public abstract float MoveSpeed { get; }

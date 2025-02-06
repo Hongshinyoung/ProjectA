@@ -155,13 +155,14 @@ MonoBehaviour:
   width: 13
   height: 13
   cellSize: 12
-  cellHeight: 10
+  cellHeight: 13
   wallPrefab: {fileID: 4348229144153864701, guid: e055b71fcd86beb4dad1427fa7c0d474,
     type: 3}
   floorPrefab: {fileID: 6712133731684814798, guid: b608e156f6777b240aafa358dc35a932,
     type: 3}
   stairPrefab: {fileID: 307227362503512985, guid: f74f92451c028d54a83a8cbb885eda84,
     type: 3}
+  prison: {fileID: 2747608531235697012, guid: d984941300dfc9349a27bd2c17f26ca7, type: 3}
   mazeParent: {fileID: 91577221}
 --- !u!4 &91577221
 Transform:

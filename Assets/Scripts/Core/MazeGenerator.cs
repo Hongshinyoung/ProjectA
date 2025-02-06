@@ -27,6 +27,7 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] private GameObject wallPrefab;
     [SerializeField] private GameObject floorPrefab;
     [SerializeField] private GameObject stairPrefab; // 계단 프리팹
+    [SerializeField] private GameObject prison;
     [SerializeField] private Transform mazeParent;
 
     private int[,,] maze; // 0: 벽, 1: 길, 2: 계단
@@ -95,6 +96,7 @@ public class MazeGenerator : MonoBehaviour
 
     private void InstantiateMaze()
     {
+        List<Vector3> availablePositions = new List<Vector3>();
         for (int z = 0; z < 2; z++) // 2층
         {
             for (int x = 0; x < width; x++)
@@ -105,6 +107,7 @@ public class MazeGenerator : MonoBehaviour
                     if (maze[x, y, z] == 1) // 길(바닥)
                     {
                         Instantiate(floorPrefab, position, Quaternion.identity, mazeParent);
+                        availablePositions.Add(position);
                     }
                     else if (maze[x, y, z] == 0) // 벽
                     {
@@ -114,8 +117,15 @@ public class MazeGenerator : MonoBehaviour
                     {
                         Instantiate(stairPrefab, position, Quaternion.identity, mazeParent);
                     }
+                    //Instantiate(prison, position, Quaternion.identity, mazeParent);
                 }
             }
+        }
+
+        if (availablePositions.Count > 0)
+        {
+            int randomIndex = Random.Range(0, availablePositions.Count);
+            Instantiate(prison, availablePositions[randomIndex], Quaternion.identity, mazeParent);
         }
     }
 }

@@ -512,6 +512,9 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  detectLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &604552860169662507
 MonoBehaviour:
   m_ObjectHideFlags: 0
