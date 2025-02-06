@@ -32,6 +32,7 @@ public class Elevator : MonoBehaviourPun
             targetDistance = Mathf.Min(elevatorRange, initialPosition.y + elevatorRange - transform.position.y); // 최대 높이 제한
             currentDirection = 1;
             isMoving = true;
+            photonView.RPC("SyncElevator", RpcTarget.All, targetDistance, currentDirection); // RPC 호출
         }
     }
 
@@ -42,7 +43,18 @@ public class Elevator : MonoBehaviourPun
             targetDistance = Mathf.Min(elevatorRange, transform.position.y - initialPosition.y); // 최대 내려갈 거리 제한
             currentDirection = -1;
             isMoving = true;
+            photonView.RPC("SyncElevator", RpcTarget.All, targetDistance, currentDirection); // RPC 호출
         }
+    }
+    
+    [PunRPC]
+    private void SyncElevator(float targetDistance, int currentDirection)
+    {
+        this.targetDistance = targetDistance;
+        this.currentDirection = currentDirection;
+        isMoving = true;
+        currentDistance = 0;
+
     }
 
     private void MoveElevator()

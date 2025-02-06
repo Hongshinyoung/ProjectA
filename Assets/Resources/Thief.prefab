@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 550533792091671188}
   - component: {fileID: 2937665794320069726}
   - component: {fileID: 8738236253968001508}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Thief
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,6 +238,7 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  prisonPosition: {fileID: 0}
 --- !u!114 &2937665794320069726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +290,7 @@ GameObject:
   - component: {fileID: 7018217691228419025}
   - component: {fileID: 8439500877893879009}
   - component: {fileID: 5215529447803612160}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -423,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306745530925897806}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +459,7 @@ GameObject:
   - component: {fileID: 1146496268724495032}
   - component: {fileID: 7682381446019547902}
   - component: {fileID: 1856044053952788505}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: PlayerMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
