@@ -493,9 +493,6 @@ MonoBehaviour:
   minVerticalAngle: -20
   maxVerticalAngle: 60
   playerCamera: {fileID: 3747673900409519289}
-  elevatorLayer:
-    serializedVersion: 2
-    m_Bits: 8
   photonView: {fileID: 604552860169662507}
 --- !u!114 &6085102656493198084
 MonoBehaviour:
@@ -515,6 +512,9 @@ MonoBehaviour:
   detectLayer:
     serializedVersion: 2
     m_Bits: 128
+  elevatorLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &604552860169662507
 MonoBehaviour:
   m_ObjectHideFlags: 0
