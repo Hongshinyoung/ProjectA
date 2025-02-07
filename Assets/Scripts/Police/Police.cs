@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ public class Police : BaseCharacter
 {
     [SerializeField] private LayerMask detectLayer;
     [SerializeField] private LayerMask elevatorLayer;
+    [SerializeField] private Transform prisonPosition;
     private CharacterController controller;
     public override float MoveSpeed => 5f;
 
@@ -15,6 +17,8 @@ public class Police : BaseCharacter
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        var prison = GameObject.Find("Prison(Clone)");
+        prisonPosition = prison.transform;
     }
 
     public override void UseSkill()
@@ -30,9 +34,13 @@ public class Police : BaseCharacter
             Thief thiefController = hit.collider.GetComponent<Thief>();
             if (thiefController != null)
             {
-                thiefController.GoToPrison();
+                PhotonView theifView = thiefController.GetComponent<PhotonView>();
+                if (theifView != null)
+                {
+                    theifView.RPC("SyncPrisonPosition", RpcTarget.All, prisonPosition.position + new Vector3(0,2,0));
+                    Debug.Log("도둑 감옥으로 이동");
+                }
             }
-            Debug.Log("도둑 잡음");
         }
         if ((1 << hit.collider.gameObject.layer & elevatorLayer) != 0)
         {

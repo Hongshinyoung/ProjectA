@@ -131,7 +131,6 @@ public class PlayerController : MonoBehaviourPun
     {
         if (!photonView.IsMine && PhotonNetwork.IsConnected)
         {
-            Debug.Log($"포톤 연결상태: {PhotonNetwork.IsConnected}");
             return;
         }
         isGrounded = characterController.isGrounded;
