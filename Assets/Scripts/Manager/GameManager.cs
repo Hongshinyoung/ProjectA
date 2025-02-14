@@ -36,5 +36,29 @@ public class GameManager : Singleton<GameManager>
             //spawnManager.Initialize(selectCharacter); // 여기서 실행하니 룸 생성 전에 플레이어 생성 요청해서 오류 발생.
         });
     }
+
+    public void CheakGameEnd()
+    {
+        int thievesInPrison = 0;
+
+        foreach (GameObject player in spawnManager.spawnPlayers)
+        {
+            Thief thief = player.GetComponent<Thief>();
+            if (thief != null && thief.IsPrison())
+            {
+                thievesInPrison++;
+            }
+        }
+
+        if (thievesInPrison >= 4)
+        {
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("게임 오버 경찰 승");
+    }
     
 }

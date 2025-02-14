@@ -9,6 +9,7 @@ public class Thief : BaseCharacter
     public override float MoveSpeed => 5.2f;
     public override float DashSpeed => 9f;
     private CharacterController controller;
+    private bool isInprison = false;
 
     private void Awake()
     {
@@ -26,5 +27,12 @@ public class Thief : BaseCharacter
     {
         Debug.Log("동기화 실행감옥");
         transform.position = position;
+        isInprison = true;
+        GameManager.Instance.CheakGameEnd();
+    }
+
+    public bool IsPrison()
+    {
+        return isInprison;
     }
 }

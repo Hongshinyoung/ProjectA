@@ -8,6 +8,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private Transform spawnPos;
+    public List<GameObject> spawnPlayers = new List<GameObject>();
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class SpawnManager : MonoBehaviour
         }
         
         var obj = PhotonNetwork.Instantiate(selectPrefabName, spawnPos.position, Quaternion.identity);
+        spawnPlayers.Add(obj);
 
         if (obj != null)
             Debug.Log($"{selectPrefabName} 생성 완료");

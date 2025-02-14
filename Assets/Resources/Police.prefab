@@ -515,6 +515,7 @@ MonoBehaviour:
   elevatorLayer:
     serializedVersion: 2
     m_Bits: 8
+  prisonPosition: {fileID: 0}
 --- !u!114 &604552860169662507
 MonoBehaviour:
   m_ObjectHideFlags: 0
