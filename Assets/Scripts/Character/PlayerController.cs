@@ -109,7 +109,15 @@ public class PlayerController : MonoBehaviourPun
             }
         }
     }
-    
+
+    public void Skill1(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            baseCharacter.UseSkill();
+        }
+    }
+
 
     private void HandleCameraRotation()
     {
