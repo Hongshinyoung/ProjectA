@@ -20,6 +20,7 @@ public class Thief : BaseCharacter
     public override void UseSkill()
     {
         // 첫 번째 스킬, 불: 주변에 불을 확산시키고, 경찰들이 제한시간내에 불을 끄지 못하면 패배
+        // TODO: 카운트다운 시작 및 불 확산
         GameObject fireObj = ResourceManager.Instance.LoadAsset<GameObject>("Fire",eAssetType.Prefab);
         if (fireObj != null)
         {
