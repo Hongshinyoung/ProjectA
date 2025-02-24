@@ -45,7 +45,7 @@
                     "name": "Inventory",
                     "type": "Button",
                     "id": "96ac6286-e5fb-4f57-8591-36ae04ac8f28",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -54,6 +54,15 @@
                     "name": "Skill1",
                     "type": "Button",
                     "id": "3c1893a9-be79-46fb-9e58-0a16b324c16b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill2",
+                    "type": "Button",
+                    "id": "acadd077-d3c6-4b64-b528-35ec9ab71a90",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -168,6 +177,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Skill1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01abcae8-fbc8-44be-9118-a7607523a5be",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

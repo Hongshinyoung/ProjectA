@@ -537,7 +537,7 @@ MonoBehaviour:
   prisonPosition: {fileID: 0}
   fireLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   fireDetectDistance: 3
 --- !u!114 &604552860169662507
 MonoBehaviour:

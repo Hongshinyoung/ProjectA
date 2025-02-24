@@ -21,20 +21,28 @@ public class Police : BaseCharacter
         prisonPosition = prison.transform;
     }
 
-    public override void UseSkill()
+    public override void FirstSkill()
     {
-        Debug.Log("스킬");
+        if (!photonView.IsMine) return;
+        TryDetectFire();
+        Debug.Log("스킬1");
+    }
+
+    public override void SecondSkill()
+    {
+        // 트랩 설치하기
+        Debug.Log("스킬2");
     }
 
     private void Update()
     {
-        if (!photonView.IsMine) return;
+        //if (!photonView.IsMine) return;
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            // 불 탐지
-            TryDetectFire();
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    // 불 탐지
+        //    TryDetectFire();
+        //}
     }
 
     private void TryDetectFire()

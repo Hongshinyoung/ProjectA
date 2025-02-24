@@ -10,7 +10,8 @@ public abstract class BaseCharacter : MonoBehaviourPun
     public abstract float MoveSpeed { get; }
     public abstract float DashSpeed { get; }
 
-    public abstract void UseSkill();
+    public abstract void FirstSkill();
+    public abstract void SecondSkill();
     protected bool IsCollision(LayerMask touchLayer, GameObject obj)
     {
         return ((1 << obj.layer) & touchLayer) != 0;

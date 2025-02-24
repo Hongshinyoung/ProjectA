@@ -114,7 +114,15 @@ public class PlayerController : MonoBehaviourPun
     {
         if (context.phase == InputActionPhase.Started)
         {
-            baseCharacter.UseSkill();
+            baseCharacter.FirstSkill();
+        }
+    }
+
+    public void Skill2(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started)
+        {
+            baseCharacter.SecondSkill();
         }
     }
 
