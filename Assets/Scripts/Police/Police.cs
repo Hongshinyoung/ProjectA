@@ -31,6 +31,12 @@ public class Police : BaseCharacter
     public override void SecondSkill()
     {
         // 트랩 설치하기
+        GameObject trap = ResourceManager.Instance.LoadAsset<GameObject>("Trap", eAssetType.Prefab);
+        if( trap != null)
+        {
+            Instantiate(trap, transform.position, Quaternion.identity);
+            Debug.Log("트랩 설치");
+        }
         Debug.Log("스킬2");
     }
 

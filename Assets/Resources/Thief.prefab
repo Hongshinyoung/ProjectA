@@ -210,6 +210,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3c1893a9-be79-46fb-9e58-0a16b324c16b
     m_ActionName: 'Player/Skill1[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: acadd077-d3c6-4b64-b528-35ec9ab71a90
+    m_ActionName: 'Player/Skill2[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -250,6 +254,12 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  itemLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  trapLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &2937665794320069726
 MonoBehaviour:
   m_ObjectHideFlags: 0

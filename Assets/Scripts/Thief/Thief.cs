@@ -12,12 +12,29 @@ public class Thief : BaseCharacter
     private bool isInprison = false;
     private float detectDistance = 3f;
     [SerializeField] private LayerMask itemLayer;
+    [SerializeField] private LayerMask trapLayer;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(!photonView.IsMine) return;
+        if(IsCollision(trapLayer, hit.collider.gameObject))
+        {
+            Debug.Log("트랩에 걸렸습니다.");
+            StartCoroutine(WaitTrapTime());
+        }
+    }
+
+    private IEnumerator WaitTrapTime()
+    {
+        controller.enabled = false;
+        yield return new WaitForSeconds(3f);
+        controller.enabled = true;
+    }
 
     public override void FirstSkill()
     {
@@ -48,6 +65,14 @@ public class Thief : BaseCharacter
             Debug.Log("아이템 감지됌.");
             Destroy(hit.collider.gameObject);
             //Inventory.Instance.AddItem();
+        }
+    }
+
+    private void CheckMissonItem()
+    {
+        if(Inventory.Instance.items.Count == 4)
+        {
+            GameManager.Instance.CheakGameEnd();
         }
     }
 

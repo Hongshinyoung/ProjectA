@@ -488,6 +488,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3c1893a9-be79-46fb-9e58-0a16b324c16b
     m_ActionName: 'Player/Skill1[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: acadd077-d3c6-4b64-b528-35ec9ab71a90
+    m_ActionName: 'Player/Skill2[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -537,7 +541,7 @@ MonoBehaviour:
   prisonPosition: {fileID: 0}
   fireLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   fireDetectDistance: 3
 --- !u!114 &604552860169662507
 MonoBehaviour:
