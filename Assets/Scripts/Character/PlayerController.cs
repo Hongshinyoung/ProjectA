@@ -19,10 +19,16 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField] private float minVerticalAngle = -50f;
     [SerializeField] private float maxVerticalAngle = 50f;
     [SerializeField] private Camera playerCamera;
-    
-    
-   
+
+    [field: Header("Animation")]
+    [field: SerializeField] public AnimationData AnimData { get; private set; }
+
+    [field: Header("References")]
+    [field: SerializeField] public PlayerSO PlayerData { get; private set; }
+
     public PhotonView photonView;
+    public Animator animator { get; private set; }
+
     private CharacterController characterController;
     private Vector2 moveInput;
     private Vector2 lookInput;
@@ -31,8 +37,11 @@ public class PlayerController : MonoBehaviourPun
     private float verticalLookRotation;
     private bool isDashing;
     private BaseCharacter baseCharacter;
+    
+
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         baseCharacter = GetComponent<BaseCharacter>();
         if (!photonView.IsMine)
