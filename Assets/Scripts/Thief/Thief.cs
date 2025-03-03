@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class Thief : BaseCharacter
@@ -21,8 +19,8 @@ public class Thief : BaseCharacter
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(!photonView.IsMine) return;
-        if(IsCollision(trapLayer, hit.collider.gameObject))
+        if (!photonView.IsMine) return;
+        if (IsCollision(trapLayer, hit.collider.gameObject))
         {
             Debug.Log("트랩에 걸렸습니다.");
             StartCoroutine(WaitTrapTime());
@@ -40,11 +38,10 @@ public class Thief : BaseCharacter
     {
         // 첫 번째 스킬, 불: 주변에 불을 확산시키고, 경찰들이 제한시간내에 불을 끄지 못하면 패배
         // TODO: 카운트다운 시작 및 불 확산
-        GameObject fireObj = ResourceManager.Instance.LoadAsset<GameObject>("Fire",eAssetType.Prefab);
-        if (fireObj != null)
-        {
-            GameObject obj = Instantiate(fireObj, transform.position + new Vector3(0,0,1), Quaternion.identity);
-        }
+        //GameObject fireObj = ResourceManager.Instance.LoadAsset<GameObject>("Fire",eAssetType.Prefab);
+
+        GameObject obj = PhotonNetwork.Instantiate("Prefab/Fire", transform.position + new Vector3(0, 0, 1), Quaternion.identity);
+
         Debug.Log(" 도둑 스킬1");
     }
 
@@ -59,8 +56,8 @@ public class Thief : BaseCharacter
     private void DetectItem()
     {
         RaycastHit hit;
-        Vector3 ray = transform.position + new Vector3(0,1,0);
-        if(Physics.Raycast(ray, Vector3.forward, out hit, detectDistance, itemLayer))
+        Vector3 ray = transform.position + new Vector3(0, 1, 0);
+        if (Physics.Raycast(ray, Vector3.forward, out hit, detectDistance, itemLayer))
         {
             Debug.Log("아이템 감지됌.");
             Destroy(hit.collider.gameObject);
@@ -70,7 +67,7 @@ public class Thief : BaseCharacter
 
     private void CheckMissonItem()
     {
-        if(Inventory.Instance.items.Count == 4)
+        if (Inventory.Instance.items.Count == 4)
         {
             GameManager.Instance.CheakGameEnd();
         }

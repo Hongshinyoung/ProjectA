@@ -37,10 +37,12 @@ public class PlayerController : MonoBehaviourPun
     private float verticalLookRotation;
     private bool isDashing;
     private BaseCharacter baseCharacter;
+    private PlayerStateMachine stateMachine;
     
 
     private void Awake()
     {
+        stateMachine = new PlayerStateMachine(this);
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         baseCharacter = GetComponent<BaseCharacter>();
@@ -49,7 +51,12 @@ public class PlayerController : MonoBehaviourPun
             playerCamera = GetComponentInChildren<Camera>();
             Destroy(playerCamera.gameObject);
         }
+    }
+
+    private void Start()
+    {
         Cursor.lockState = CursorLockMode.Locked;
+        stateMachine.TransitionToState(stateMachine.idleState);
     }
 
 
@@ -164,6 +171,7 @@ public class PlayerController : MonoBehaviourPun
             // !ground방지
             velocity.y = -2f;
         }
+        stateMachine.Update();
         
         Moving();
         

@@ -4,13 +4,13 @@ public class StateMachine
 {
     public IState CurrentState { get; private set; }
 
-    public IdleState idleState;
+    public PlayerIdleState idleState;
     public WalkState walkState;
     public RunState runState;
 
     public StateMachine(PlayerController player)
     {
-        idleState = new IdleState(player);
+        //idleState = new PlayerIdleState(player);
         walkState = new WalkState(player);
         runState = new RunState(player);
     }
